@@ -8,8 +8,9 @@ exports.template = function(grunt, init, done) {
   log.debug('Bare bones template in progress...');
   grunt.helper('prompt', {type: 'barebones'}, [
     grunt.helper('prompt_for', 'name'),
+    grunt.helper('prompt_for', 'title', 'Barebones'),
     grunt.helper('prompt_for', 'version'),
-    grunt.helper('prompt_for', 'description', 'none'),
+    grunt.helper('prompt_for', 'description', 'A minimal project template.'),
     {
       name: 'dev_dir',
       message: 'Develompment dir (relative to project root):',
@@ -37,6 +38,11 @@ exports.template = function(grunt, init, done) {
       props.app_dir = path.join(props.js_dir, 'app');
       props.lib_dir = path.join(props.js_dir, 'lib');
       props.styles_dir = path.join(props.dev_dir, props.styles_dir);
+      props.dependencies = {
+        "grunt-volo": "~0.0.1",
+        "grunt-contrib-less": "~0.3.2",
+        "grunt-reload": "~0.2.0"
+      }
 
       var lines = Object.keys(props).reduce(function (lines, key) {
         lines.push(key + ': ' + props[key]);
@@ -58,11 +64,7 @@ exports.template = function(grunt, init, done) {
         name: props.name,
         version: props.version,
         node_version: '>= 0.6.0',
-        dependencies: {
-          "grunt-volo": "0.0.1",
-          "grunt-contrib-less": "*",
-          "grunt-reload": "*"
-        }
+        dependencies: props.dependencies
       }, function (pkg) {
         pkg.volo = {
           baseUrl: props.lib_dir
@@ -70,6 +72,14 @@ exports.template = function(grunt, init, done) {
         return pkg;
       });
 
-      done();
+      log.writeln('Installing node dependencies...');
+      grunt.utils.spawn({
+        cmd: 'npm',
+        args: ['install'],
+        fallback: 'Failed to install node dependencies.'
+      }, function (err, result, code) {
+        if (code !== 0) log.error(result);
+        done();
+      });
     });
 }

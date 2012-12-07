@@ -53,6 +53,8 @@ module.exports = function(grunt) {
     uglify: {}
   });
 
-  // Default task.
+  grunt.loadNpmTasks('grunt-volo');
+  grunt.loadNpmTasks('grunt-reload');
+  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.registerTask('default', 'lint qunit concat min');
 };
