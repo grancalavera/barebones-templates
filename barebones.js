@@ -38,6 +38,7 @@ exports.template = function(grunt, init, done) {
       props.app_dir = path.join(props.js_dir, 'app');
       props.lib_dir = path.join(props.js_dir, 'lib');
       props.styles_dir = path.join(props.dev_dir, props.styles_dir);
+      // see https://github.com/isaacs/node-semver
       props.dependencies = {
         "grunt-volo": "~0.0.1",
         "grunt-contrib-less": "~0.3.2",
@@ -56,7 +57,7 @@ exports.template = function(grunt, init, done) {
       init.writePackageJSON('package.json', {
         name: props.name,
         version: props.version,
-        node_version: '>= 0.6.0',
+        node_version: '>= 0.8.14',
         dependencies: props.dependencies
       }, function (pkg) {
         pkg.volo = {
