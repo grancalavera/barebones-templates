@@ -44,14 +44,7 @@ exports.template = function(grunt, init, done) {
         "grunt-reload": "~0.2.0"
       }
 
-      var lines = Object.keys(props).reduce(function (lines, key) {
-        lines.push(key + ': ' + props[key]);
-        return lines;
-      }, []);
-      log.debug('\n' + log.wordlist(lines, '\n'));
-
       var files = init.filesToCopy(props);
-      log.debug(files);
 
       grunt.file.mkdir(props.app_dir);
       grunt.file.mkdir(props.lib_dir);
@@ -71,15 +64,9 @@ exports.template = function(grunt, init, done) {
         }
         return pkg;
       });
-
-      log.writeln('Installing node dependencies...');
-      grunt.utils.spawn({
-        cmd: 'npm',
-        args: ['install'],
-        fallback: 'Failed to install node dependencies.'
-      }, function (err, result, code) {
-        if (code !== 0) log.error(result);
-        done();
-      });
+      log.writeln(' ');
+      log.writeln('Now run "npm install" to install this template\'s node modules.'.cyan);
+      log.writeln(' ');
+      done();
     });
 }
