@@ -10,27 +10,7 @@ exports.template = function(grunt, init, done) {
     grunt.helper('prompt_for', 'name'),
     grunt.helper('prompt_for', 'title', 'Barebones'),
     grunt.helper('prompt_for', 'version'),
-    grunt.helper('prompt_for', 'description', 'A minimal project template.'),
-    {
-      name: 'dev_dir',
-      message: 'Develompment dir (relative to project root):',
-      default: 'www'
-    },
-    {
-      name: 'js_dir',
-      message: 'Scripts directory (relative to development directory):',
-      default: 'js'
-    },
-    {
-      name: 'styles_dir',
-      message: 'Styles directory (relative to development directory):',
-      default: 'less'
-    },
-    {
-      name: 'test_dir',
-      message: 'Tests directory (relative to project root):',
-      default: 'test'
-    }
+    grunt.helper('prompt_for', 'description', 'A minimal project template.')
     ], function (err, props) {
 
       props.file_name = '<%= pkg.name %>';
@@ -46,11 +26,6 @@ exports.template = function(grunt, init, done) {
 
       var files = init.filesToCopy(props);
 
-      grunt.file.mkdir(props.app_dir);
-      grunt.file.mkdir(props.lib_dir);
-      grunt.file.mkdir(props.styles_dir);
-      grunt.file.mkdir(props.test_dir);
-
       init.copyAndProcess(files, props);
 
       init.writePackageJSON('package.json', {
@@ -60,7 +35,7 @@ exports.template = function(grunt, init, done) {
         dependencies: props.dependencies
       }, function (pkg) {
         pkg.volo = {
-          baseUrl: props.lib_dir
+          baseUrl: 'www/js/lib'
         }
         return pkg;
       });

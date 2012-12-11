@@ -12,26 +12,30 @@ module.exports = function(grunt) {
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
     lint: {
-      files: ['grunt.js', '{%= app_dir %}/**/*.js', '{%= test_dir %}/**/*.js']
+      files: ['grunt.js', 'www/js/app/**/*.js', 'test/**/*.js']
     },
-    qunit: {
-      files: ['{%= test_dir %}/**/*.html']
-    },
-    concat: {
-      dist: {
-        src: ['<banner:meta.banner>', '<file_strip_banner:{%= js_dir %}/{%= file_name %}.js>'],
-        dest: 'dist/{%= file_name %}.js'
-      }
-    },
-    min: {
-      dist: {
-        src: ['<banner:meta.banner>', '<config:concat.dist.dest>'],
-        dest: 'dist/{%= file_name %}.min.js'
+    less: {
+      development: {
+        options: {
+        },
+        files: {
+          'www/css/main.css': 'www/less/main.less'
+        }
       }
     },
     watch: {
       files: '<config:lint.files>',
-      tasks: 'lint qunit'
+      tasks: 'lint less reload'
+    },
+    server: {
+      port: 8000,
+      base: 'www'
+    },
+    reload: {
+      port: 6001,
+      proxy: {
+        host: 'localhost'
+      }
     },
     jshint: {
       options: {
@@ -49,12 +53,11 @@ module.exports = function(grunt) {
       },
       globals: {
       }
-    },
-    uglify: {}
+    }
   });
 
   grunt.loadNpmTasks('grunt-volo');
   grunt.loadNpmTasks('grunt-reload');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.registerTask('default', 'lint qunit concat min');
+  grunt.registerTask('default', 'server lint less reload watch');
 };
