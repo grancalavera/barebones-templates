@@ -35,12 +35,17 @@ exports.template = function(grunt, init, done) {
         dependencies: props.dependencies
       }, function (pkg) {
         pkg.volo = {
-          baseUrl: 'www/js/lib'
+          baseUrl: 'www/js/lib',
+          dependencies: {
+            jquery: 'github:jquery/jquery/1.8.3',
+            require: 'github:jrburke/requirejs/2.1.2'
+          }
         }
         return pkg;
       });
       log.writeln(' ');
-      log.writeln('Now run "npm install" to install this template\'s node modules.'.cyan);
+      log.writeln('1. Run "npm install" to install this template\'s node modules.'.cyan);
+      log.writeln('2. Run "grunt volo:add -amdoff" to install this template\'s volo dependencies.'.cyan);
       log.writeln(' ');
       done();
     });

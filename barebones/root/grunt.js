@@ -24,7 +24,7 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: '<config:lint.files>',
+      files: ['<config:lint.files>', 'www/less/**/*.less', 'www/index.html'],
       tasks: 'lint less reload'
     },
     server: {
@@ -52,6 +52,10 @@ module.exports = function(grunt) {
         browser: true
       },
       globals: {
+        console: true,
+        define: true,
+        require: true,
+        requirejs: true
       }
     }
   });
