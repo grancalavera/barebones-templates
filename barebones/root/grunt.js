@@ -25,7 +25,7 @@ module.exports = function(grunt) {
     },
     watch: {
       files: ['<config:lint.files>', 'www/less/**/*.less', 'www/index.html'],
-      tasks: 'lint less reload'
+      tasks: 'lint less qunit reload'
     },
     qunit: {
       files: ['test/**/*.html']
@@ -66,5 +66,5 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-volo');
   grunt.loadNpmTasks('grunt-reload');
   grunt.loadNpmTasks('grunt-contrib-less');
-  grunt.registerTask('default', 'server lint less reload watch');
+  grunt.registerTask('default', 'server lint less qunit reload watch');
 };
