@@ -1,0 +1,4 @@
+{
+  "www/js/app/name.js": "www/js/app/{%= name %}.js",
+  "test/tests/name.js": "test/tests/{%= name %}-tests.js"
+}

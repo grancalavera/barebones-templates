@@ -10,7 +10,11 @@
     }
   });
   QUnit.config.autostart = false;
-  requirejs(['tests/main'], function () {
+  var allTests = [
+    'tests/{%= name %}-tests'
+    // add more tests here...
+  ];
+  requirejs(allTests, function () {
     QUnit.start();
   });
 })();

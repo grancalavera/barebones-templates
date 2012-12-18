@@ -22,7 +22,7 @@ define(function (require) {
       raises(block, [expected], [message])
   */
   var $ = require('jquery');
-  var main =  require('app/main');
+  var main =  require('{%= name %}');
 
   module('{%= title %}', {
     setup: function () {
