@@ -12,7 +12,7 @@ module.exports = function(grunt) {
         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
     },
     lint: {
-      files: ['grunt.js', 'www/js/app.js', 'www/js/app/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'www/js/app.js', 'www/js/app/**/*.js', 'test/test.js', 'test/tests/**/*.js']
     },
     less: {
       development: {
@@ -26,6 +26,9 @@ module.exports = function(grunt) {
     watch: {
       files: ['<config:lint.files>', 'www/less/**/*.less', 'www/index.html'],
       tasks: 'lint less reload'
+    },
+    qunit: {
+      files: ['test/**/*.html']
     },
     server: {
       port: 8000,

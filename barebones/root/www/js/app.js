@@ -1,7 +1,8 @@
+// {%= title %}: application bootstrap.
 ;(function () {
   'use strict';
 
-  require.config({
+  requirejs.config({
     urlArgs:'x=' + new Date().getTime(),
     baseUrl: 'js/lib',
     paths: {
