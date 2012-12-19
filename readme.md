@@ -6,7 +6,7 @@ Two simple RequireJS templates: one for web based projects and one for library p
 
  - Live reloading.
  - CSS pre-processing.
- - Unit testing..
+ - Unit testing.
  - Project scaffolding.
 
 ##Requirements
@@ -24,7 +24,7 @@ Clone this repo to ```~/.grunt/tasks/init``` (Mac).
 From your project's directory, run:
 
   - ```grunt init:barebones-www``` to generate a template for a RequireJS web project.
-  - ```grunt init:barebones-lib``` to generate a template for a RequireJS AMD library project (a stand-alone module).
+  - ```grunt init:barebones-lib``` to generate a template for a RequireJS library project (a stand-alone module).
 
 Then follow the instructions on the screen.
 
