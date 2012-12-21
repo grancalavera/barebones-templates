@@ -1,0 +1,16 @@
+{
+  "name": "barebones-templates",
+  "version": "0.1.0",
+  "description": "Two simple Grunt 0.3 RequireJS templates: one for web based projects and one for library projects.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/grancalavera/barebones-templates.git"
+  },
+  "keywords": [
+    "grunt",
+    "requirejs"
+  ],
+  "author": "Leon Coto",
+  "license": "BSD",
+  "readmeFilename": "readme.md"
+}
