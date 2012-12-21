@@ -1,6 +1,6 @@
 #Grunt barebones templates
 
-Two simple RequireJS templates: one for web based projects and one for library projects.
+Two simple Grunt 0.3 RequireJS templates: one for web based projects and one for library projects.
 
 ## Out of the box
 
