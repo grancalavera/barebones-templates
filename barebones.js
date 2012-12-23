@@ -17,13 +17,13 @@ exports.prompt = function (grunt, init, done, options) {
 
     props.file_name = '<%= pkg.name %>';
     props.devDependencies = options.devDependencies || {};
-    props.volo = options.volo || {};
     props.node_version = '>=0.8.14';
 
     var files = init.filesToCopy(props);
     init.copyAndProcess(files, props);
 
     init.writePackageJSON('package.json', props, function (pkg) {
+      pkg.volo = options.volo || {};
       return pkg;
     });
 
