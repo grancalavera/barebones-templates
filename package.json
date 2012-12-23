@@ -10,6 +10,9 @@
     "grunt",
     "requirejs"
   ],
+  "devDependencies": {
+    "grunt": "~0.4.0rc4"
+    },
   "author": "Leon Coto",
   "license": "BSD",
   "readmeFilename": "readme.md"
