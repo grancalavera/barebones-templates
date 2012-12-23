@@ -1,14 +1,10 @@
-/*
- * {%= name %}
- * {%= homepage %}
- *
- * Copyright (c) {%= grunt.template.today('yyyy') %} {%= author_name %}
- * Licensed under the {%= licenses.join(', ') %} license{%= licenses.length === 1 ? '' : 's' %}.
- */
+/* jshint devel:true */
 define(function (require) {
     'use strict';
-    var $ = require('jquery');
+    var $ = require('jquery')
+      , doc = $(document)
     return {
-      title: '{%= title %}'
-    };
+      title: '{%= title %}',
+      doc: doc
+    }
 });

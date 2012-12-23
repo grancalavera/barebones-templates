@@ -1,8 +1,7 @@
-/*global QUnit:false, module:false, test:false, asyncTest:false, expect:false*/
-/*global start:false, stop:false ok:false, equal:false, notEqual:false, deepEqual:false*/
-/*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
+ /*jshint devel:true */
 define(function (require) {
   'use strict';
+
   /*
     ======== A Handy Little QUnit Reference ========
     http://docs.jquery.com/QUnit
@@ -21,17 +20,19 @@ define(function (require) {
       notStrictEqual(actual, expected, [message])
       raises(block, [expected], [message])
   */
-  var $ = require('jquery');
-  var main =  require('{%= name %}');
+  var $ = require('jquery')
+    , main = require('{%= name %}')
+    , doc = $(document)
 
   module('{%= title %}', {
     setup: function () {
-      this.title = main.title;
+      this.title = main.title
+      this.doc = doc
     }
   });
 
   test('{%= title %} title', function () {
-    equal(this.title, '{%= title %}', 'main.title should be {%= title %}');
-  });
+    equal(this.title, '{%= title %}', 'main.title should be {%= title %}')
+  })
 
-});
+})

@@ -1,37 +1,35 @@
 exports.prompt = function (grunt, init, done, options) {
   var log = grunt.log;
   options = options || {};
-  grunt.helper('prompt', {type: options.type}, [
-    grunt.helper('prompt_for', 'name'),
-    grunt.helper('prompt_for', 'title', options.title || 'Barebones'),
-    grunt.helper('prompt_for', 'description', 'A minimal project template.'),
-    grunt.helper('prompt_for', 'version'),
-    grunt.helper('prompt_for', 'repository'),
-    grunt.helper('prompt_for', 'homepage'),
-    grunt.helper('prompt_for', 'bugs'),
-    grunt.helper('prompt_for', 'licenses', 'MIT'),
-    grunt.helper('prompt_for', 'author_name'),
-    grunt.helper('prompt_for', 'author_email'),
-    grunt.helper('prompt_for', 'author_url')
+  init.process({type: options.type || 'Barebones Template'}, [
+    init.prompt('name'),
+    init.prompt('title', options.title || 'Barebones'),
+    init.prompt('description', 'A minimal project template.'),
+    init.prompt('version'),
+    init.prompt('repository'),
+    init.prompt('homepage'),
+    init.prompt('bugs'),
+    init.prompt('licenses', 'MIT'),
+    init.prompt('author_name'),
+    init.prompt('author_email'),
+    init.prompt('author_url')
   ], function (err, props) {
-    var files;
+
     props.file_name = '<%= pkg.name %>';
-    props.dependencies = options.dependencies || {};
-    files = init.filesToCopy(props);
+    props.devDependencies = options.devDependencies || {};
+    props.volo = options.volo || {};
+    props.node_version = '>=0.8.14';
+
+    var files = init.filesToCopy(props);
     init.copyAndProcess(files, props);
-    init.writePackageJSON('package.json', {
-      name: props.name,
-      version: props.version,
-      node_version: '>= 0.8.14',
-      dependencies: props.dependencies
-    }, function (pkg) {
-      pkg.volo = options.volo || {};
+
+    init.writePackageJSON('package.json', props, function (pkg) {
       return pkg;
     });
-    log.writeln(' ');
+
     log.writeln('1. Run "npm install" to install this template\'s node modules.'.cyan);
-    log.writeln('2. Run "grunt volo:add -amdoff" to install this template\'s volo dependencies.'.cyan);
-    log.writeln(' ');
+    log.writeln('2. Run "volo add -amdoff" to install this template\'s volo dependencies.'.cyan);
+
     done();
   });
 };

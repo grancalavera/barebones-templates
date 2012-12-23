@@ -1,4 +1,4 @@
-/*global QUnit:false*/
+ /*jshint devel:true */
 ;(function () {
   'use strict';
   requirejs.config({
@@ -7,9 +7,11 @@
       tests: '../test/tests',
       jquery: '../lib/jquery'
     }
-  });
-  QUnit.config.autostart = false;
-  requirejs(['tests/{%= name %}-tests'], function () {
-    QUnit.start();
-  });
-})();
+  })
+  var tests = [
+    'tests/{%= name %}-tests'
+  ]
+  requirejs(tests, function () {
+    QUnit.start()
+  })
+})()
