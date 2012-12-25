@@ -2,6 +2,11 @@
 var devDependencies = {
   'volo': '~0.2.6',
   'grunt': '~0.4.0rc4',
+  'grunt-contrib-jshint': '~0.1.0',
+  'grunt-contrib-qunit': '~0.1.0',
+  'grunt-contrib-concat': '~0.1.1',
+  'grunt-contrib-uglify': '~0.1.0',
+  'grunt-contrib-watch': '~0.2.0a',
   'grunt-contrib-requirejs': '~0.3.4'
 };
 
