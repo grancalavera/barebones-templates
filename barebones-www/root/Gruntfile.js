@@ -44,6 +44,15 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
 
+    connect: {
+      server: {
+        options: {
+          port: 8000,
+          base: 'www'
+        }
+      }
+    },
+
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
@@ -64,8 +73,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-connect');
 
   grunt.registerTask('default', ['less', 'jshint', 'qunit']);
+  grunt.registerTask('server', ['default', 'connect', 'watch']);
 };
 
 // module.exports = function(grunt) {

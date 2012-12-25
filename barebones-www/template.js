@@ -11,6 +11,7 @@ exports.template = function(grunt, init, done) {
     devDependencies: {
       'grunt-contrib-qunit': '~0.1.0',
       'grunt-contrib-less': '~0.3.2',
+      'grunt-contrib-connect': '~0.1.0',
       'grunt-reload': '~0.2.0'
     },
     volo: {
