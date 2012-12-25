@@ -2,16 +2,18 @@
 ;(function () {
   'use strict';
   requirejs.config({
+    urlArgs:'bust=' + new Date().getTime(),
     baseUrl: '../src',
     paths: {
       tests: '../test/tests',
       jquery: '../lib/jquery'
     }
   });
-  var tests = [
+  var allTests = [
     'tests/{%= name %}-tests'
+    // add more tests here...
   ];
-  requirejs(tests, function () {
+  requirejs(allTests, function () {
     QUnit.start();
   });
 })();

@@ -1,17 +1,17 @@
-var barebones = require('./barebones');
+var barebones = require('./../barebones'),
+    type = 'barebones-www';
+
 exports.description = 'Barebones template for web projects.';
 exports.warnOn = '*';
+
 exports.template = function(grunt, init, done) {
-  var log = grunt.log;
-  log.debug('Bare bones template in progress...');
   barebones.prompt(grunt, init, done, {
-    type: 'barebones-www',
+    type: type,
     title: 'Barebones: Web Project',
-    // see https://github.com/isaacs/node-semver
-    dependencies: {
-      "grunt-volo": "~0.0.1",
-      "grunt-contrib-less": "~0.3.2",
-      "grunt-reload": "~0.2.0"
+    devDependencies: {
+      'grunt-contrib-qunit': '~0.1.0',
+      'grunt-contrib-less': '~0.3.2',
+      'grunt-reload': '~0.2.0'
     },
     volo: {
       baseUrl: 'www/js/lib',

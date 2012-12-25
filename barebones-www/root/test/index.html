@@ -6,6 +6,8 @@
   <!-- Load local QUnit (grunt requires v1.0.0 or newer). -->
   <link rel="stylesheet" href="qunit/qunit.css" media="screen">
   <script src="qunit/qunit.js"></script>
+  <!-- Stopping tests right here, b/c otherwise phantom stalls. -->
+  <script>QUnit.config.autostart = false</script>
   <!-- Load local test loader and requirejs. -->
   <script data-main="test" src="../www/js/lib/require.js"></script>
 </head>

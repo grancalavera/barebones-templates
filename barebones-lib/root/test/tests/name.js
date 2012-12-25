@@ -1,7 +1,6 @@
- /*jshint devel:true */
+/*jshint devel:true */
 define(function (require) {
   'use strict';
-
   /*
     ======== A Handy Little QUnit Reference ========
     http://docs.jquery.com/QUnit

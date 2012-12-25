@@ -11,7 +11,6 @@ exports.template = function(grunt, init, done) {
     devDependencies: {
       'grunt-contrib-qunit': '~0.1.0',
     },
-    // project layout,
     volo: {
       baseUrl: 'lib',
       dependencies: {

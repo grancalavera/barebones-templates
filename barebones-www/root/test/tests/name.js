@@ -1,6 +1,4 @@
-/*global QUnit:false, module:false, test:false, asyncTest:false, expect:false*/
-/*global start:false, stop:false ok:false, equal:false, notEqual:false, deepEqual:false*/
-/*global notDeepEqual:false, strictEqual:false, notStrictEqual:false, raises:false*/
+ /*jshint devel:true */
 define(function (require) {
   'use strict';
   /*
@@ -21,12 +19,14 @@ define(function (require) {
       notStrictEqual(actual, expected, [message])
       raises(block, [expected], [message])
   */
-  var $ = require('jquery');
-  var main =  require('app/{%= name %}');
+  var $ = require('jquery'),
+      main =  require('app/{%= name %}'),
+      doc = $(document);
 
   module('{%= title %}', {
     setup: function () {
       this.title = main.title;
+      this.doc = doc;
     }
   });
 
