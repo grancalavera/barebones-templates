@@ -1,13 +1,11 @@
 // see https://github.com/isaacs/node-semver
 var devDependencies = {
+  // node
   'volo': '~0.2.6',
   'grunt': '~0.4.0rc4',
+  // grunt
   'grunt-contrib-jshint': '~0.1.0',
-  'grunt-contrib-qunit': '~0.1.0',
-  'grunt-contrib-concat': '~0.1.1',
-  'grunt-contrib-uglify': '~0.1.0',
-  'grunt-contrib-watch': '~0.2.0a',
-  'grunt-contrib-requirejs': '~0.3.4'
+  'grunt-contrib-watch': '~0.2.0a'
 };
 
 exports.prompt = function (grunt, init, done, options) {
@@ -45,10 +43,9 @@ exports.prompt = function (grunt, init, done, options) {
       return pkg;
     });
 
-    log.writeln('1. Run "npm install" to install this template\'s node ' +
-      'modules.'.cyan);
-    log.writeln('2. Run "volo add -amdoff" to install this template\'s volo ' +
-      'dependencies.'.cyan);
+    log.writeln();
+    log.writeln('1. Run "npm install" to install this template\'s node modules.'.cyan);
+    log.writeln('2. Run "volo add -amdoff" to install this template\'s volo dependencies.'.cyan);
 
     done();
   });

@@ -20,19 +20,19 @@ define(function (require) {
       notStrictEqual(actual, expected, [message])
       raises(block, [expected], [message])
   */
-  var $ = require('jquery')
-    , main = require('{%= name %}')
-    , doc = $(document)
+  var $ = require('jquery'),
+      main = require('{%= name %}'),
+      doc = $(document);
 
   module('{%= title %}', {
     setup: function () {
-      this.title = main.title
-      this.doc = doc
+      this.title = main.title;
+      this.doc = doc;
     }
   });
 
   test('{%= title %} title', function () {
-    equal(this.title, '{%= title %}', 'main.title should be {%= title %}')
-  })
+    equal(this.title, '{%= title %}', 'main.title should be {%= title %}');
+  });
 
-})
+});
