@@ -30,6 +30,16 @@ module.exports = function(grunt) {
       },
     },
 
+    less: {
+      dev: {
+        options: {
+        },
+        files: {
+          'www/css/main.css': 'www/less/main.less'
+        }
+      }
+    },
+
     qunit: {
       files: ['test/**/*.html']
     },
@@ -50,13 +60,12 @@ module.exports = function(grunt) {
     }
   });
 
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-less');
 
-  // Default task.
-  grunt.registerTask('default', ['jshint', 'qunit']);
+  grunt.registerTask('default', ['less', 'jshint', 'qunit']);
 };
 
 // module.exports = function(grunt) {
@@ -72,15 +81,6 @@ module.exports = function(grunt) {
 //     },
 //     lint: {
 //       files: ['grunt.js', 'www/js/app.js', 'www/js/app/**/*.js', 'test/test.js', 'test/tests/**/*.js']
-//     },
-//     less: {
-//       development: {
-//         options: {
-//         },
-//         files: {
-//           'www/css/main.css': 'www/less/main.less'
-//         }
-//       }
 //     },
 //     watch: {
 //       files: ['<config:lint.files>', 'www/less/**/*.less', 'www/index.html'],
@@ -124,6 +124,5 @@ module.exports = function(grunt) {
 
 //   grunt.loadNpmTasks('grunt-volo');
 //   grunt.loadNpmTasks('grunt-reload');
-//   grunt.loadNpmTasks('grunt-contrib-less');
 //   grunt.registerTask('default', 'server lint less qunit reload watch');
 // };
