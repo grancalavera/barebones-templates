@@ -27,7 +27,7 @@ module.exports = function(grunt) {
           jshintrc: 'test/.jshintrc'
         },
         src: ['test/**/test.js', 'test/tests/**.js']
-      },
+      }
     },
 
     qunit: {
@@ -50,11 +50,9 @@ module.exports = function(grunt) {
     }
   });
 
-  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
-  // Default task.
   grunt.registerTask('default', ['jshint', 'qunit']);
 };

@@ -44,8 +44,31 @@ module.exports = function(grunt) {
       files: ['test/**/*.html']
     },
 
+    watch: {
+      gruntfile: {
+        files: '<%= jshint.gruntfile.src %>',
+        tasks: ['jshint:gruntfile', 'reload']
+      },
+      src: {
+        files: '<%= jshint.src.src %>',
+        tasks: ['jshint:src', 'reload']
+      },
+      test: {
+        files: '<%= jshint.test.src %>',
+        tasks: ['jshint:test', 'reload']
+      },
+      less: {
+        files: ['www/less/**/*.less'],
+        tasks: ['less:dev', 'reload']
+      },
+      index: {
+        files: ['www/index.html'],
+        tasks: ['reload']
+      }
+    },
+
     connect: {
-      server: {
+      dev: {
         options: {
           port: 8000,
           base: 'www'
@@ -53,20 +76,10 @@ module.exports = function(grunt) {
       }
     },
 
-    watch: {
-      gruntfile: {
-        files: '<%= jshint.gruntfile.src %>',
-        tasks: ['jshint:gruntfile']
-      },
-      src: {
-        files: '<%= jshint.src.src %>',
-        tasks: ['jshint:src']
-      },
-      test: {
-        files: '<%= jshint.test.src %>',
-        tasks: ['jshint:test']
-      },
+    reload: {
+      port: 8000
     }
+
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -74,66 +87,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-reload');
 
   grunt.registerTask('default', ['less', 'jshint', 'qunit']);
-  grunt.registerTask('server', ['default', 'connect', 'watch']);
+  grunt.registerTask('devserver', ['default', 'connect:dev', 'reload']);
+  // grunt.registerTask('devserver', ['default', 'connect:dev', 'reload', 'watch']);
+
 };
-
-// module.exports = function(grunt) {
-
-//   grunt.initConfig({
-//     pkg: '<json:package.json>',
-//     meta: {
-//       banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-//         '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-//         '<%= pkg.homepage ? "* " + pkg.homepage + "\n" : "" %>' +
-//         '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-//         ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */'
-//     },
-//     lint: {
-//       files: ['grunt.js', 'www/js/app.js', 'www/js/app/**/*.js', 'test/test.js', 'test/tests/**/*.js']
-//     },
-//     watch: {
-//       files: ['<config:lint.files>', 'www/less/**/*.less', 'www/index.html'],
-//       tasks: 'lint less qunit reload'
-//     },
-//     qunit: {
-//       files: ['test/**/*.html']
-//     },
-//     server: {
-//       port: 8000,
-//       base: 'www'
-//     },
-//     reload: {
-//       port: 6001,
-//       proxy: {
-//         host: 'localhost'
-//       }
-//     },
-//     jshint: {
-//       options: {
-//         curly: true,
-//         eqeqeq: true,
-//         immed: true,
-//         latedef: true,
-//         newcap: true,
-//         noarg: true,
-//         sub: true,
-//         undef: true,
-//         boss: true,
-//         eqnull: true,
-//         browser: true
-//       },
-//       globals: {
-//         console: true,
-//         define: true,
-//         require: true,
-//         requirejs: true
-//       }
-//     }
-//   });
-
-//   grunt.loadNpmTasks('grunt-volo');
-//   grunt.loadNpmTasks('grunt-reload');
-//   grunt.registerTask('default', 'server lint less qunit reload watch');
-// };
