@@ -16,14 +16,14 @@ exports.prompt = function (grunt, init, done, options) {
   ], function (err, props) {
     var files;
     props.file_name = '<%= pkg.name %>';
-    props.dependencies = options.dependencies || {};
+    props.devDependencies = options.devDependencies || {};
     files = init.filesToCopy(props);
     init.copyAndProcess(files, props);
     init.writePackageJSON('package.json', {
       name: props.name,
       version: props.version,
       node_version: '>= 0.8.14',
-      dependencies: props.dependencies
+      devDependencies: props.devDependencies
     }, function (pkg) {
       pkg.volo = options.volo || {};
       return pkg;

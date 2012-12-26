@@ -8,7 +8,8 @@ exports.template = function(grunt, init, done) {
     type: 'barebones-lib',
     title: 'Barebones: Library Project',
     // see https://github.com/isaacs/node-semver
-    dependencies: {
+    devDependencies: {
+      "grunt": "~0.3.17",
       "grunt-volo": "~0.0.1"
     },
     volo: {

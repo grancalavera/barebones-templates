@@ -12,5 +12,8 @@
   ],
   "author": "Leon Coto",
   "license": "BSD",
-  "readmeFilename": "readme.md"
+  "readmeFilename": "readme.md",
+  "devDependencies": {
+    "grunt": "~0.3.17"
+  }
 }
