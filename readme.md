@@ -35,9 +35,9 @@ Then follow the instructions on the screen.
  - QUnit for unit testing.
  - Volo for dependencies management.
 
-## In process
+## Still WIP
 
-This is still in process, but I'll stop development for grunt 0.3.x and start working towards grunt 0.4.x and 0.5.x. This means there are some features that will never be avaliable for grunt 0.3.x, such as:
+This is still work in progress, but I'll stop development for grunt 0.3.x and start working towards grunt 0.4.x and 0.5.x. This means there are some features that will never be avaliable for grunt 0.3.x, such as:
 
  - Code concatenation.
  - Code minification.
