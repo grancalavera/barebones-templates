@@ -1,4 +1,5 @@
 {
   "www/js/app/name.js": "www/js/app/{%= name %}.js",
+  "www/js/templates/src/name.hbs": "www/js/templates/src/{%= name %}.hbs",
   "test/tests/name.js": "test/tests/{%= name %}-tests.js"
 }

@@ -12,10 +12,20 @@
     urlArgs:'x=' + new Date().getTime(),
     baseUrl: 'js/lib',
     paths: {
-      app: '../app'
+      app: '../app',
+      templates: '../templates/dist/templates'
     },
     // http://requirejs.org/docs/api.html#config-shim
     shim: {
+      'handlebars': {
+        exports: 'Handlebars'
+      },
+      // see
+      // https://github.com/gruntjs/grunt-contrib-handlebars/pull/4#issuecomment-8510600
+      'templates': {
+        exports: 'JST',
+        deps: ['handlebars']
+      }
     }
   });
 
