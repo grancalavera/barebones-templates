@@ -8,7 +8,6 @@
       jquery: '../lib/jquery'
     }
   });
-  QUnit.config.autostart = false;
   requirejs(['tests/{%= name %}-tests'], function () {
     QUnit.start();
   });
