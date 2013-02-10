@@ -66,31 +66,55 @@ module.exports = function(grunt) {
         tasks: ['reload']
       }
     },
-
+    requirejs: {
+      production: {
+        options: {
+          appDir: 'www',
+          mainConfigFile: 'www/js/main.js',
+          dir: 'www-built',
+          modules: [
+            {name: 'app/<%= pkg.name %>'}
+          ],
+          optimize: 'uglify',
+          uglify: {
+            toplevel: true,
+            ascii_only: true,
+            beautify: true,
+            max_line_length: 1000
+          }
+        }
+      }
+    },
     connect: {
       dev: {
         options: {
-          port: 8000,
+          port: 8080,
           base: 'www'
         }
       }
     },
 
     reload: {
-      port: 8000
+      port: 6001,
+      proxy: {
+        host: 'localhost',
+        port: 8080
+      }
     }
 
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-less');
+  grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-requirejs');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-reload');
 
-  grunt.registerTask('default', ['less', 'jshint', 'qunit']);
-  grunt.registerTask('devserver', ['default', 'connect:dev', 'reload']);
-  // grunt.registerTask('devserver', ['default', 'connect:dev', 'reload', 'watch']);
+  grunt.registerTask('dev_build', ['less', 'jshint', 'qunit']);
+  grunt.registerTask('dev_server', ['connect:dev', 'reload', 'watch']);
+  grunt.registerTask('default', ['dev_build', 'dev_server']);
+  grunt.registerTask('build', ['dev_build', 'requirejs:production']);
 
 };

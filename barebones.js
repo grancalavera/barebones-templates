@@ -2,10 +2,11 @@
 var devDependencies = {
   // node
   'volo': '~0.2.6',
-  'grunt': '~0.4.0rc4',
+  'grunt': '~0.4.0rc7',
   // grunt
-  'grunt-contrib-jshint': '~0.1.0',
-  'grunt-contrib-watch': '~0.2.0a'
+  'grunt-contrib-jshint': '~0.1.1rc6',
+  'grunt-contrib-watch': '~0.2.0rc7',
+  'grunt-contrib-requirejs': '0.4.0rc7'
 };
 
 exports.prompt = function (grunt, init, done, options) {

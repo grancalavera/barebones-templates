@@ -9,10 +9,10 @@ exports.template = function(grunt, init, done) {
     type: type,
     title: 'Barebones: Web Project',
     devDependencies: {
-      'grunt-contrib-qunit': '~0.1.0',
-      'grunt-contrib-less': '~0.3.2',
-      'grunt-contrib-connect': '~0.1.0',
-      'grunt-reload': '~0.2.0'
+      'grunt-contrib-qunit': '~0.1.1rc6',
+      'grunt-contrib-less': '~0.5.0rc7',
+      'grunt-contrib-connect': '~0.1.1rc6',
+      'grunt-reload': 'git://github.com/webxl/grunt-reload.git'
     },
     volo: {
       baseUrl: 'www/js/lib',
