@@ -1,11 +1,10 @@
 // see https://github.com/isaacs/node-semver
 var devDependencies = {
   // node
-  'volo': '~0.2.6',
   'grunt': '~0.4.0rc7',
   // grunt
   'grunt-contrib-jshint': '~0.1.1rc6',
-  'grunt-contrib-watch': '~0.2.0rc7',
+  'grunt-contrib-watch': 'git://github.com/jamie-stackhouse/grunt-contrib-watch.git',
   'grunt-contrib-requirejs': '0.4.0rc7'
 };
 

@@ -1,6 +1,9 @@
 #Grunt barebones templates
 
-Two simple Grunt 0.3 RequireJS templates: one for web based projects and one for library projects.
+Two simple Grunt 0.4.x RequireJS templates: one for web based projects and one for 
+library projects.
+
+https://github.com/gruntjs/grunt/wiki/Project-Scaffolding
 
 ## Out of the box
 
@@ -9,22 +12,33 @@ Two simple Grunt 0.3 RequireJS templates: one for web based projects and one for
  - Unit testing.
  - Project scaffolding.
 
-##Requirements
+## Dependencies
+
+All of the following npm packages must be installed globally:
 
  - node ~0.8.14
  - npm ~1.1.65
- - grunt ~0.3.17
+ - volo ~0.2.7
+ - grunt-cli ~0.1.6
+ - grunt-init ~0.2.0rc8
 
-##Install
+##Install (Mac)
 
-Clone this repo to ```~/.grunt/tasks/init``` (Mac).
+Clone this repo to anywhere in your computer.
+
+Create symlinks at ```~/.grunt-init/barebones-www``` and ```~/.grunt-init/barebones-lib```
+and make them point to those dierctories in your clone of barebones-templates
+
+Install the grunt dependencies:
+```sudo npm install -g grunt-cli@0.1.6```
+```sudo npm install -g grunt-init@0.2.0rc8```
 
 ## Usage
 
 From your project's directory, run:
 
-  - ```grunt init:barebones-www``` to generate a template for a RequireJS web project.
-  - ```grunt init:barebones-lib``` to generate a template for a RequireJS library project (a stand-alone module).
+  - ```grunt-init barebones-www``` to generate a template for a RequireJS web project.
+  - ```grunt-init barebones-lib``` to generate a template for a RequireJS library project (a stand-alone module).
 
 Then follow the instructions on the screen.
 

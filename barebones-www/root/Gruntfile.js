@@ -88,7 +88,7 @@ module.exports = function(grunt) {
     connect: {
       dev: {
         options: {
-          port: 8080,
+          port: 8000,
           base: 'www'
         }
       }
@@ -98,7 +98,7 @@ module.exports = function(grunt) {
       port: 6001,
       proxy: {
         host: 'localhost',
-        port: 8080
+        port: 8000
       }
     }
 
