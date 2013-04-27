@@ -1,6 +1,6 @@
 #Grunt barebones templates
 
-Two simple Grunt 0.4.x RequireJS templates: one for web based projects and one for 
+Two simple Grunt 0.4.x RequireJS templates: one for web based projects and one for
 library projects.
 
 https://github.com/gruntjs/grunt/wiki/Project-Scaffolding
@@ -56,7 +56,3 @@ This is still in process, but I'll stop development for grunt 0.3.x and start wo
  - Code concatenation.
  - Code minification.
  - Publish to GitHub pages.
-
-
-
-
