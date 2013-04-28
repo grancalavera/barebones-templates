@@ -1,11 +1,11 @@
 // see https://github.com/isaacs/node-semver
 var devDependencies = {
   // node
-  'grunt': '~0.4.0rc7',
-  // grunt
-  'grunt-contrib-jshint': '~0.1.1rc6',
-  'grunt-contrib-watch': 'git://github.com/jamie-stackhouse/grunt-contrib-watch.git',
-  'grunt-contrib-requirejs': '0.4.0rc7'
+  "grunt": "~0.4.1",
+  "grunt-contrib-clean": "~0.4.1",
+  "grunt-contrib-jshint": "~0.4.3",
+  "grunt-contrib-requirejs": "~0.4.0",
+  "grunt-contrib-watch": "~0.3.1"
 };
 
 exports.prompt = function (grunt, init, done, options) {

@@ -9,7 +9,7 @@ exports.template = function(grunt, init, done) {
     type: type,
     title: 'Barebones: Library Project',
     devDependencies: {
-      'grunt-contrib-qunit': '~0.1.0',
+      "grunt-contrib-qunit": "~0.2.1"
     },
     volo: {
       baseUrl: 'lib',
